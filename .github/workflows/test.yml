@@ -18,6 +18,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Call
-        working-directory: ./sub/project-root
-        run: javac Example.java
+      - name: Setup and execute Gradle 'test' task
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
+          build-root-directory: ./sub/project-root
